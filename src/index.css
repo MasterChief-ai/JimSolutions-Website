@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/500.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/inter/300.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+/* Professional Home Services Design System */
+
+@layer base {
+  :root {
+    /* Navy Blue - Primary brand color */
+    --navy: 210 40% 16%;
+    --navy-light: 210 35% 22%;
+    --navy-dark: 210 45% 12%;
+    
+    /* Cream/Beige - Secondary background */
+    --cream: 40 33% 96%;
+    --cream-dark: 40 25% 92%;
+    
+    /* Gold/Tan - Accent color */
+    --gold: 42 50% 58%;
+    --gold-light: 42 55% 68%;
+    --gold-dark: 42 45% 48%;
+    
+    /* Core semantic tokens */
+    --background: 40 33% 96%;
+    --foreground: 210 40% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 16%;
+
+    --primary: 42 50% 58%;
+    --primary-foreground: 210 40% 16%;
+
+    --secondary: 210 40% 16%;
+    --secondary-foreground: 40 33% 96%;
+
+    --muted: 40 25% 92%;
+    --muted-foreground: 210 20% 40%;
+
+    --accent: 42 50% 58%;
+    --accent-foreground: 210 40% 16%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 42 30% 80%;
+    --input: 42 30% 80%;
+    --ring: 42 50% 58%;
+
+    --radius: 0.5rem;
+
+    /* Typography */
+    --font-serif: "Playfair Display", Georgia, serif;
+    --font-sans: "Inter", system-ui, sans-serif;
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(210 40% 16% / 0.1);
+    --shadow-card: 0 8px 30px -8px hsl(210 40% 16% / 0.15);
+    --shadow-elevated: 0 20px 50px -15px hsl(210 40% 16% / 0.2);
+    
+    /* Gradients */
+    --gradient-navy: linear-gradient(135deg, hsl(210 40% 16%) 0%, hsl(210 35% 22%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(42 50% 58%) 0%, hsl(42 55% 68%) 100%);
+    
+    /* Sidebar tokens */
+    --sidebar-background: 210 40% 16%;
+    --sidebar-foreground: 40 33% 96%;
+    --sidebar-primary: 42 50% 58%;
+    --sidebar-primary-foreground: 210 40% 16%;
+    --sidebar-accent: 210 35% 22%;
+    --sidebar-accent-foreground: 40 33% 96%;
+    --sidebar-border: 210 30% 25%;
+    --sidebar-ring: 42 50% 58%;
+  }
+
+  .dark {
+    --background: 210 40% 16%;
+    --foreground: 40 33% 96%;
+
+    --card: 210 35% 22%;
+    --card-foreground: 40 33% 96%;
+
+    --popover: 210 35% 22%;
+    --popover-foreground: 40 33% 96%;
+
+    --primary: 42 50% 58%;
+    --primary-foreground: 210 40% 16%;
+
+    --secondary: 40 33% 96%;
+    --secondary-foreground: 210 40% 16%;
+
+    --muted: 210 30% 25%;
+    --muted-foreground: 40 20% 70%;
+
+    --accent: 42 50% 58%;
+    --accent-foreground: 210 40% 16%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 30% 25%;
+    --input: 210 30% 25%;
+    --ring: 42 50% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer components {
+  /* Hero pattern overlay */
+  .hero-pattern {
+    background-image: 
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        hsl(var(--navy-light) / 0.3) 40px,
+        hsl(var(--navy-light) / 0.3) 41px
+      );
+  }
+
+  /* Gold border card */
+  .gold-border-card {
+    border: 2px solid hsl(var(--gold));
+    background: hsl(var(--navy-light));
+  }
+
+  /* Section padding */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  /* Container max width */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Heading styles */
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight;
+    font-family: var(--font-serif);
+  }
+
+  .heading-lg {
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight;
+    font-family: var(--font-serif);
+  }
+
+  .heading-md {
+    @apply text-2xl md:text-3xl font-semibold;
+    font-family: var(--font-serif);
+  }
+
+  /* Text styles */
+  .text-body {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+
+  .text-body-sm {
+    @apply text-sm md:text-base leading-relaxed;
+  }
+}
